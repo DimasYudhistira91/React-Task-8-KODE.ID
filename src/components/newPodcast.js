@@ -33,7 +33,7 @@ class NewPodcast extends Component {
 
   render() { 
     return (
-      <div>
+      <div style={this.props.visible ? { display: 'block' } : { display: 'none' }}>
         <h3>New Podcast</h3>
         <form onSubmit={this.handleForm}>
           <input onChange={this.handleTitle} type='text' placeholder='Title' value={this.state.title}/>

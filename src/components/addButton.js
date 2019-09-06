@@ -3,7 +3,9 @@ import './addButton.css';
 
 const AddButton = (props) => {
   return (
-    <button className='float'>
+    <button
+    onClick={props.handleNewButton}
+    className='float'>
       +
     </button>
   );

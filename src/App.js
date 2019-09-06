@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Header from './components/header';
 // import Footer from './components/footer';
 import Podcast from './components/podcast';
@@ -9,6 +10,7 @@ import WaImg from './img/wa.jpg';
 import Search from './components/search';
 import AddButton from './components/addButton';
 import NewPodcast from './components/newPodcast';
+import Menu from './components/menu';
 
 const isSearch = searchTerm => item => item.title.toLowerCase().includes(searchTerm. toLowerCase());
 
@@ -54,17 +56,26 @@ class App extends Component {
     })
   }
 
+  handleNewButton = () => {
+    this.setState({
+      ui: {
+        formVisibility: !this.state.ui.formVisibility
+      }
+    })
+  }
+
   render() { 
     return (
       <React.Fragment>
         <Header/>
-        <NewPodcast
-          onHandleNewPodcast={this.handleNewPodcast}
-          visible={this.state.ui.formVisibility}
-        />
+        <Menu/>
         <Search
           handleInput={this.handleInput}
           handleButton={this.handleButton}
+        />
+        <NewPodcast
+          onHandleNewPodcast={this.handleNewPodcast}
+          visible={this.state.ui.formVisibility}
         />
         {this.state.podcast
           .filter(isSearch(this.state.inputUser))
@@ -74,7 +85,9 @@ class App extends Component {
             thumbnail={podcast.thumbnail}
           />
         )}
-        <AddButton/>
+        <AddButton
+          handleNewButton={this.handleNewButton}
+        />
       </React.Fragment>
     );
   }
