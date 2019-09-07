@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import About from './pages/About';
 import Subscribe from './pages/subscribe';
 import NotFound from './pages/notFound';
+import Cart from './Cart';
 
 const RootApp = () => (
   <BrowserRouter>
@@ -20,7 +21,8 @@ const RootApp = () => (
   </BrowserRouter>
 );
 
-ReactDOM.render(<RootApp />, document.getElementById('root'));
+// ReactDOM.render(<RootApp />, document.getElementById('root'));
+ReactDOM.render(<Cart />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
