@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import About from './pages/About';
+import Subscribe from './pages/subscribe';
+import NotFound from './pages/notFound';
 
 const RootApp = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={App} />
       <Route path='/about' component={About} />
+      <Route path='/subscribe' component={Subscribe} />
+      <Route path='/contact' component={() => <Redirect to='/about'/>} />
+      <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
 );

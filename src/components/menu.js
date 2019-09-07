@@ -6,6 +6,8 @@ const Menu = () => (
     <ul>
       <li><a href='/'>Home</a></li>
       <li><Link to='/about'>About</Link></li>
+      <li><Link to='/subscribe'>Subscribe</Link></li>
+      <li><Link to='/contact'>Contact</Link></li>
     </ul>
   </div>
 );
